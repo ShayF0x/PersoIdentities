@@ -14,7 +14,7 @@ import java.nio.charset.Charset;
 public class Updater {
     private @Nullable
     GitHubReleaseInfo latestRelease;
-    private static final String LATEST_RELEASE_ENDPOINT = "https://api.github.com/repos/Etrenak/FallenKingdom/releases/latest";
+    private static final String LATEST_RELEASE_ENDPOINT = "https://api.github.com/repos/ShayF0x/PersoIdentities/releases/latest";
     private final Version currentVersion;
 
 
