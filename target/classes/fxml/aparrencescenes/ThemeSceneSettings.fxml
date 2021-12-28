@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane id="border-pane" prefHeight="972.0" prefWidth="1470.0" style="-fx-border-color: transparent; -fx-border-width: 0px;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.shayfox.persoidentitie.controllers.ThemeSceneSettingsController">
+   <right>
+      <VBox id="border-pane" fx:id="vBox" alignment="CENTER" prefWidth="400.0" spacing="20.0" style="-fx-border-color: gray; -fx-border-width: 0.25px;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="150.0" right="150.0" top="100.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="15.0" left="25.0" right="25.0" top="15.0" />
+         </padding>
+         <children>
+            <Pane id="SecondBorder" minHeight="50.0" prefHeight="50.0" prefWidth="350.0" style="-fx-border-width: 0.15;">
+               <children>
+                  <Label id="text" layoutX="95.0" layoutY="8.0" style="-fx-font-size: 25px;" text="Texte" />
+                  <Label id="title" layoutX="184.0" layoutY="7.0" style="-fx-font-size: 25px;" text="Texte" />
+               </children>
+            </Pane>
+            <Pane id="GalerieBorderPane" minHeight="100.0" prefHeight="100.0" prefWidth="350.0" style="-fx-border-width: 0.5;">
+               <children>
+                  <JFXButton id="buttonBar" layoutX="36.0" layoutY="34.0" text="Bouton" />
+                  <JFXButton id="Second-button" layoutX="138.0" layoutY="35.0" text="Bouton" />
+                  <JFXButton layoutX="236.0" layoutY="34.0" text="Bouton" />
+               </children>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" />
+               </effect>
+            </Pane>
+            <Pane id="border-pane" minHeight="110.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 1.5 1.5 1.5 1.5; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-width: 0.5;">
+               <children>
+                  <JFXComboBox fx:id="testCombobox" labelFloat="true" layoutX="182.0" layoutY="41.0" promptText="Combo box" />
+                  <JFXTextField id="edit-textfield" labelFloat="true" layoutX="23.0" layoutY="42.0" prefHeight="31.0" prefWidth="117.0" promptText="TextField" />
+               </children>
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0" />
+               </effect>
+            </Pane>
+            <DatePicker maxHeight="35.0" minHeight="31.0" minWidth="15.0" prefHeight="35.0" prefWidth="31.0" showWeekNumbers="true" style="-fx-faint-focus-color: transparent; -fx-border-color: transparent; -fx-focus-color: transparent; -fx-background-color: transparent;" />
+            <BorderPane>
+               <center>
+                  <JFXListView id="ListView" fx:id="testListView" prefWidth="350.0" />
+               </center>
+               <top>
+                  <Label text="Liste" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
+            <Label style="-fx-font-size: 25px;" text="Aperçu" />
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <top>
+            <FlowPane alignment="CENTER" hgap="50.0" prefHeight="200.0" prefWidth="200.0" vgap="50.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXComboBox fx:id="themeComboBox" prefHeight="31.0" prefWidth="169.0" promptText="Thèmes" />
+               </children>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </FlowPane>
+         </top>
+      </BorderPane>
+   </center>
+</BorderPane>

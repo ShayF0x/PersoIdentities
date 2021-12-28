@@ -1,0 +1,24 @@
+package fr.shayfox.persoidentitie.updater;
+
+import com.google.gson.annotations.SerializedName;
+import com.sun.istack.internal.NotNull;
+
+public class GitHubAssetInfo {
+    String url;
+
+    int id;
+
+    String name;
+
+    @SerializedName("browser_download_url")
+    String browserDownloadUrl;
+
+    public @NotNull
+    String name() {
+        return this.name;
+    }
+
+    public @NotNull String browserDownloadUrl() {
+        return this.browserDownloadUrl;
+    }
+}

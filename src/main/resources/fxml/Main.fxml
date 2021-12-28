@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTogglePane?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.shayfox.persoidentitie.controllers.MainController">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="200.0" minWidth="350.0" prefHeight="1080.0" prefWidth="1920.0">
+         <center>
+            <BorderPane minHeight="105.4" minWidth="192.0" prefHeight="1054.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+               <center>
+                  <SplitPane fx:id="SpitPane" dividerPositions="0.0" style="-fx-background-color: transparent;">
+                     <items>
+                        <JFXTabPane fx:id="TabPane" maxWidth="1950.0" minHeight="104.5" minWidth="1645.0" prefHeight="1045.0" prefWidth="1700.0" />
+                        <JFXTogglePane fx:id="findbox_pane" minWidth="100.0" prefHeight="1045.0" prefWidth="262.0" />
+                     </items>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                  </SplitPane>
+               </center>
+            </BorderPane>
+         </center>
+         <top>
+            <JFXToolbar fx:id="ToolBar" minHeight="26.0" minWidth="192.0" prefHeight="26.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+               <center>
+                  <HBox minHeight="26.0" minWidth="350.0" prefHeight="26.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <JFXButton fx:id="button_Save" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" maxHeight="25.0" maxWidth="31.0" minHeight="25.0" minWidth="31.0" prefHeight="31.0" prefWidth="31.0" text=" ">
+                           <graphic>
+                              <MaterialDesignIconView glyphName="CONTENT_SAVE" size="28" wrappingWidth="30.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></MaterialDesignIconView>
+                           </graphic>
+                           <font>
+                              <Font size="1.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="3.0" />
+                           </padding>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton fx:id="button_settings_file" minHeight="25.0" text="Fichier">
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" radius="0.5">
+                                 <stops>
+                                    <Stop color="#b2b2b2" />
+                                    <Stop color="#b2b2b2" offset="0.007246376811594203" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <contextMenu>
+                              <ContextMenu fx:id="edit_contextmenu">
+                                <items>
+                                  <MenuItem fx:id="button_edit" mnemonicParsing="false" text="éditer" />
+                                    <Menu mnemonicParsing="false" text="crée">
+                                      <items>
+                                        <MenuItem fx:id="CreateTag" mnemonicParsing="false" text="étiquette" />
+                                         <MenuItem fx:id="CreatePerson" mnemonicParsing="false" text="fiche personnage" />
+                                      </items>
+                                    </Menu>
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <MenuItem fx:id="closewindows" mnemonicParsing="false" text="force exit" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </JFXButton>
+                        <JFXButton fx:id="button_settings_preferences" minHeight="25.0" text="Préférences">
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" focusDistance="0.024390243902439046" radius="0.4634146341463415">
+                                 <stops>
+                                    <Stop color="#b9b6b6" />
+                                    <Stop color="#b9b6b6" offset="0.007246376811594203" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <contextMenu>
+                              <ContextMenu fx:id="show_contextmenu">
+                                 <items>
+                                    <MenuItem fx:id="button_theme" mnemonicParsing="false" text="thèmes" />
+                                    <Menu mnemonicParsing="false" text="barre outils">
+                                       <items>
+                                          <CheckMenuItem fx:id="checkbox_selectionlist" mnemonicParsing="false" text="liste de sélection" />
+                                       </items>
+                                    </Menu>
+                                 </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </center>
+            </JFXToolbar>
+         </top>
+      </BorderPane>
+   </children>
+</StackPane>

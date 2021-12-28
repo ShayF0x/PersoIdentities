@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="142.0" minWidth="250.0" prefHeight="1022.0" prefWidth="1720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.shayfox.persoidentitie.controllers.OtherIdentitieTabController">
+   <top>
+      <BorderPane prefHeight="55.0" prefWidth="1720.0" BorderPane.alignment="CENTER">
+         <bottom>
+            <Pane prefHeight="3.0" prefWidth="1720.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <center>
+            <HBox alignment="CENTER" prefHeight="18.0" prefWidth="1520.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </top>
+   <left>
+      <VBox prefHeight="913.0" prefWidth="174.0" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane id="GalerieBorderPane" prefHeight="246.0" prefWidth="220.0" style="-fx-border-width: 0.5;">
+               <bottom>
+                  <JFXButton id="Second-button" fx:id="button_Galerie" prefHeight="40.0" prefWidth="230.0" text="Galerie" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="3.0" />
+                     </BorderPane.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+               </bottom>
+               <center>
+                  <ImageView fx:id="ImageView" fitHeight="244.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+               </center>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" top="35.0" />
+               </VBox.margin>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" color="#000000b6" />
+               </effect>
+            </BorderPane>
+            <FlowPane fx:id="ImageFlowPane" hgap="5.0" prefHeight="597.0" prefWidth="260.0" vgap="5.0">
+               <padding>
+                  <Insets left="5.0" right="5.0" top="2.0" />
+               </padding></FlowPane>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <BorderPane BorderPane.alignment="CENTER">
+         <left>
+            <Pane maxWidth="17.0" minWidth="5.0" prefHeight="913.0" prefWidth="17.0" BorderPane.alignment="CENTER" />
+         </left>
+         <top>
+            <Pane prefHeight="6.0" prefWidth="1488.0" BorderPane.alignment="CENTER" />
+         </top>
+         <center>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox maxWidth="555.0" minWidth="465.0" prefHeight="950.0" prefWidth="465.0" spacing="20.0">
+                     <children>
+                        <BorderPane id="border-pane" fx:id="pane_1" prefHeight="384.0" prefWidth="465.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-width: 0.5; -fx-padding: 2.5; -fx-background-radius: 1.5 1.5 1.5 1.5;">
+                           <top>
+                              <VBox prefHeight="32.0" prefWidth="457.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label text="Identitées">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="                                                                       " underline="true">
+                                       <font>
+                                          <Font size="6.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </top>
+                           <center>
+                              <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="5.0" prefHeight="417.0" prefWidth="566.0" prefWrapLength="200.0" vgap="5.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="26.0" prefWidth="248.0">
+                                       <children>
+                                          <JFXTextField id="title" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="26.0" prefWidth="90.0" text="Identité de:" unFocusColor="#4d4d4d00">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField id="text" fx:id="Owner" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="26.0" prefWidth="202.0" unFocusColor="#4d4d4d00">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </JFXTextField>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="30.0" right="30.0" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="26.0" prefWidth="207.0">
+                                       <FlowPane.margin>
+                                          <Insets />
+                                       </FlowPane.margin>
+                                       <children>
+                                          <JFXTextField id="title" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="26.0" prefWidth="49.0" text="Prénom:" unFocusColor="#4d4d4d00">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField id="text" fx:id="PrenameLabel" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="26.0" prefWidth="157.0" unFocusColor="#4d4d4d00">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </JFXTextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="26.0" prefWidth="240.0">
+                                       <children>
+                                          <JFXTextField id="title" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="26.0" prefWidth="38.0" text="Nom:" unFocusColor="#4d4d4d00">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField id="text" fx:id="NameLabel" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="26.0" prefWidth="210.0" unFocusColor="#4d4d4d00">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </JFXTextField>
+                                       </children>
+                                    </HBox>
+                                    <VBox id="SecondBorder" maxHeight="104.0" prefHeight="104.0" prefWidth="222.0" style="-fx-border-width: 0.5;">
+                                       <children>
+                                          <JFXTextField id="SecondBorder" alignment="CENTER" editable="false" focusColor="BLACK" prefHeight="14.0" prefWidth="220.0" style="-fx-border-style: dotted; -fx-border-width: 0.25;" text="Autres Prénom" unFocusColor="BLACK">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font></JFXTextField>
+                                          <JFXListView id="ListView" fx:id="OtherNameList" prefHeight="99.0" prefWidth="220.0" style="-fx-faint-focus-color: transparent; -fx-focus-color: transparent;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="98.0" prefWidth="229.0" spacing="10.0">
+                                       <children>
+                                          <VBox prefHeight="50.0" prefWidth="229.0">
+                                             <children>
+                                                <JFXTextField id="title" alignment="CENTER" editable="false" focusColor="TRANSPARENT" prefHeight="19.0" prefWidth="229.0" text="Sexe:" unFocusColor="TRANSPARENT">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                                <JFXTextField id="text" fx:id="GenreLabel" alignment="CENTER" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="47.0" prefWidth="220.0" unFocusColor="#4d4d4d00" />
+                                                <VBox prefHeight="50.0" prefWidth="229.0">
+                                                   <children>
+                                                      <JFXTextField id="title" alignment="CENTER" editable="false" focusColor="TRANSPARENT" prefHeight="0.0" prefWidth="229.0" text="Nom de Mariage:" unFocusColor="TRANSPARENT">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                      <JFXTextField id="text" fx:id="MarriedNameLabel" alignment="CENTER" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="47.0" prefWidth="220.0" unFocusColor="#4d4d4d00" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox id="SecondBorder" prefHeight="53.0" prefWidth="138.0" style="-fx-border-width: 0.09;">
+                                       <children>
+                                          <JFXTextField id="SecondBorder" alignment="CENTER" editable="false" focusColor="TRANSPARENT" prefHeight="21.0" prefWidth="220.0" style="-fx-border-style: dotted; -fx-border-width: 0.25;" text="Date de naissance" unFocusColor="TRANSPARENT">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField id="text" fx:id="BornDateLabel" alignment="CENTER" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="43.0" prefWidth="138.0" unFocusColor="#4d4d4d00" />
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets right="25.0" />
+                                       </FlowPane.margin>
+                                    </VBox>
+                                    <VBox id="SecondBorder" prefHeight="71.0" prefWidth="138.0" style="-fx-border-width: 0.09;">
+                                       <children>
+                                          <JFXTextField id="SecondBorder" alignment="CENTER" editable="false" focusColor="TRANSPARENT" prefHeight="10.0" prefWidth="138.0" style="-fx-border-style: dotted; -fx-border-width: 0.25;" text="Date de mort:" unFocusColor="TRANSPARENT">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField id="text" fx:id="DeathDateLabel" alignment="CENTER" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="47.0" prefWidth="220.0" unFocusColor="#4d4d4d00" />
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="25.0" />
+                                       </FlowPane.margin>
+                                    </VBox>
+                                    <VBox id="SecondBorder" prefHeight="71.0" prefWidth="207.0" style="-fx-border-width: 0.15;">
+                                       <children>
+                                          <JFXTextField id="SecondBorder" alignment="CENTER" editable="false" focusColor="TRANSPARENT" prefHeight="21.0" prefWidth="220.0" style="-fx-border-style: dotted; -fx-border-width: 0.25;" text="Ville de naissance:" unFocusColor="TRANSPARENT">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField id="text" fx:id="BornCityLabel" alignment="CENTER" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="47.0" prefWidth="220.0" unFocusColor="#4d4d4d00" />
+                                       </children>
+                                    </VBox>
+                                    <VBox id="SecondBorder" prefHeight="48.0" prefWidth="219.0" style="-fx-border-width: 0.15;">
+                                       <children>
+                                          <JFXTextField id="SecondBorder" alignment="CENTER" editable="false" focusColor="TRANSPARENT" prefHeight="21.0" prefWidth="220.0" style="-fx-border-style: dotted; -fx-border-width: 0.25;" text="Ville de mort:" unFocusColor="TRANSPARENT">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField id="text" fx:id="DeathCityLabel" alignment="CENTER" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="47.0" prefWidth="220.0" unFocusColor="#4d4d4d00" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <BorderPane.margin>
+                                    <Insets />
+                                 </BorderPane.margin>
+                              </FlowPane>
+                           </center></BorderPane>
+                        <BorderPane id="border-pane" fx:id="pane_11" prefHeight="176.0" prefWidth="463.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-width: 0.5; -fx-padding: 2.5; -fx-background-radius: 1.5 1.5 1.5 1.5;">
+                           <top>
+                              <VBox prefHeight="32.0" prefWidth="457.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label text="Types">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="                                                                       " underline="true">
+                                       <font>
+                                          <Font size="6.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </top>
+                           <center>
+                              <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="5.0" prefHeight="0.0" prefWidth="457.0" prefWrapLength="200.0" vgap="5.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets />
+                                 </BorderPane.margin>
+                                 <children>
+                                    <HBox prefHeight="29.0" prefWidth="305.0">
+                                       <children>
+                                          <JFXTextField id="title" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="31.0" prefWidth="34.0" text="Race:" unFocusColor="#4d4d4d00">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField id="text" fx:id="RaceLabel" editable="false" focusColor="#405aa800" prefHeight="29.0" prefWidth="270.0" unFocusColor="#4d4d4d00">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </JFXTextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="29.0" prefWidth="130.0">
+                                       <children>
+                                          <JFXTextField id="title" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="29.0" prefWidth="54.0" text="Niveaux:" unFocusColor="#4d4d4d00">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField id="text" fx:id="LevelLabel" editable="false" focusColor="#405aa800" prefHeight="29.0" prefWidth="80.0" unFocusColor="#4d4d4d00">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </JFXTextField>
+                                       </children>
+                                    </HBox>
+                                    <VBox id="SecondBorder" maxHeight="117.0" prefHeight="117.0" prefWidth="126.0" style="-fx-border-width: 0.5;">
+                                       <children>
+                                          <JFXTextField id="SecondBorder" alignment="CENTER" editable="false" focusColor="BLACK" prefHeight="14.0" prefWidth="220.0" style="-fx-border-style: dotted; -fx-border-width: 0.25;" text="Pouvoir" unFocusColor="BLACK">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXListView id="ListView" fx:id="PowersList" prefHeight="171.0" prefWidth="220.0" style="-fx-faint-focus-color: transparent; -fx-focus-color: transparent;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox id="SecondBorder" prefHeight="117.0" prefWidth="165.0" style="-fx-border-width: 0.5;">
+                                       <children>
+                                          <JFXTextField id="SecondBorder" alignment="CENTER" editable="false" focusColor="TRANSPARENT" prefHeight="14.0" prefWidth="220.0" style="-fx-border-style: dotted; -fx-border-width: 0.25;" text="Capacitées physiques" unFocusColor="TRANSPARENT">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextArea id="text" fx:id="PhysicalAbilityArena" editable="false" focusColor="#405aa800" prefHeight="99.0" prefWidth="273.0" unFocusColor="#ffffff00" />
+                                       </children>
+                                    </VBox>
+                                    <VBox id="SecondBorder" prefHeight="117.0" prefWidth="154.0" style="-fx-border-width: 0.5;">
+                                       <children>
+                                          <JFXTextField id="SecondBorder" alignment="CENTER" editable="false" focusColor="TRANSPARENT" prefHeight="14.0" prefWidth="220.0" style="-fx-border-style: dotted; -fx-border-width: 0.25;" text="Précisions sur leur race" unFocusColor="TRANSPARENT">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextArea id="text" fx:id="TypeDetailsArena" editable="false" focusColor="#405aa800" prefHeight="99.0" prefWidth="273.0" unFocusColor="#ffffff00" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </FlowPane>
+                           </center>
+                        </BorderPane>
+                        <BorderPane id="border-pane" fx:id="pane_111" prefHeight="147.0" prefWidth="454.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-width: 0.5; -fx-padding: 2.5; -fx-background-radius: 1.5 1.5 1.5 1.5;">
+                           <top>
+                              <VBox maxWidth="458.0" prefHeight="32.0" prefWidth="453.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label prefHeight="19.0" prefWidth="458.0" text="Caractère">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="                                                                                                                                                                                                                                                                                     " underline="true">
+                                       <font>
+                                          <Font size="6.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </top>
+                           <left>
+                              <JFXTextArea id="text" fx:id="CaractereArena" editable="false" focusColor="#425ba800" prefHeight="109.0" prefWidth="455.0" unFocusColor="#4d4d4d00" BorderPane.alignment="CENTER" />
+                           </left>
+                        </BorderPane>
+                     </children></VBox>
+                  <Pane maxWidth="17.0" minWidth="5.0" prefHeight="956.0" prefWidth="17.0" HBox.hgrow="ALWAYS" />
+                  <VBox prefHeight="882.0" prefWidth="507.0" spacing="20.0">
+                     <children>
+                        <BorderPane id="border-pane" fx:id="pane_112" prefHeight="615.0" prefWidth="480.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-width: 0.5; -fx-padding: 2.5; -fx-background-radius: 1.5 1.5 1.5 1.5;">
+                           <top>
+                              <VBox prefHeight="32.0" prefWidth="457.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label text="Caractéristiques">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="                                                                       " underline="true">
+                                       <font>
+                                          <Font size="6.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </top>
+                           <center>
+                              <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="5.0" prefHeight="0.0" prefWidth="457.0" prefWrapLength="200.0" vgap="5.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets />
+                                 </BorderPane.margin>
+                                 <children>
+                                    <VBox id="SecondBorder" maxHeight="117.0" prefHeight="101.0" prefWidth="222.0" style="-fx-border-width: 0.5;">
+                                       <children>
+                                          <JFXTextField id="SecondBorder" alignment="CENTER" editable="false" focusColor="TRANSPARENT" prefHeight="14.0" prefWidth="220.0" style="-fx-border-style: dotted; -fx-border-width: 0.25;" text="Qualitées" unFocusColor="TRANSPARENT">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXListView id="ListView" fx:id="QualityList" prefHeight="171.0" prefWidth="220.0" style="-fx-faint-focus-color: transparent; -fx-focus-color: transparent;" />
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets right="15.0" />
+                                       </FlowPane.margin>
+                                    </VBox>
+                                    <VBox id="SecondBorder" maxHeight="117.0" prefHeight="101.0" prefWidth="203.0" style="-fx-border-width: 0.5;">
+                                       <children>
+                                          <JFXTextField id="SecondBorder" alignment="CENTER" editable="false" focusColor="BLACK" prefHeight="14.0" prefWidth="220.0" style="-fx-border-style: dotted; -fx-border-width: 0.25;" text="Défauts" unFocusColor="BLACK">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXListView id="ListView" fx:id="DefaultList" prefHeight="171.0" prefWidth="220.0" style="-fx-faint-focus-color: transparent; -fx-focus-color: transparent;" />
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="15.0" />
+                                       </FlowPane.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="241.0" prefWidth="160.0">
+                                       <children>
+                                          <VBox id="SecondBorder" prefHeight="47.0" prefWidth="160.0" style="-fx-border-width: 0.09;">
+                                             <children>
+                                                <JFXTextField id="SecondBorder" alignment="CENTER" editable="false" focusColor="TRANSPARENT" prefHeight="10.0" prefWidth="138.0" style="-fx-border-style: dotted; -fx-border-width: 0.25;" text="Élément affilié" unFocusColor="TRANSPARENT">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                                <JFXTextField id="text" fx:id="AffiliateElementLabel" alignment="CENTER" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="47.0" prefWidth="220.0" unFocusColor="#4d4d4d00" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" top="5.0" />
+                                             </VBox.margin>
+                                          </VBox>
+                                          <JFXButton id="Second-button" prefHeight="14.0" prefWidth="160.0" text="Préférences" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="236.0" prefWidth="282.0" style="-fx-border-color: Gray; -fx-border-width: 0.5;">
+                                       <children>
+                                          <JFXTextField id="SecondBorder" alignment="CENTER" editable="false" focusColor="TRANSPARENT" prefHeight="29.0" prefWidth="237.0" style="-fx-border-style: dotted; -fx-border-width: 0.25;" text="Caractéristiques Physiques" unFocusColor="TRANSPARENT">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextArea id="text" fx:id="PhysicalCaracteristicsArena" editable="false" focusColor="#405aa800" prefHeight="223.0" prefWidth="280.0" unFocusColor="#ffffff00" />
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </FlowPane.margin>
+                                    </VBox>
+                                    <VBox id="SecondBorder" prefHeight="205.0" prefWidth="470.0" style="-fx-border-width: 0.5;">
+                                       <children>
+                                          <JFXTextField id="SecondBorder" alignment="CENTER" editable="false" focusColor="TRANSPARENT" prefHeight="29.0" prefWidth="237.0" style="-fx-border-style: dotted; -fx-border-width: 0.25;" text="Signes Astrologiques" unFocusColor="TRANSPARENT">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <FlowPane alignment="BOTTOM_CENTER" hgap="8.0" prefHeight="200.0" prefWidth="200.0" vgap="6.0">
+                                             <children>
+                                                <HBox prefHeight="34.0" prefWidth="265.0">
+                                                   <children>
+                                                      <JFXTextField id="title" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="18.0" prefHeight="41.0" prefWidth="126.0" text="Signes Astrologiques:" unFocusColor="#4d4d4d00">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                      <JFXTextField id="text" fx:id="AstrologicalSignLabel" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="14.0" prefHeight="39.0" prefWidth="136.0" unFocusColor="#4d4d4d00">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                      </JFXTextField>
+                                                   </children>
+                                                   <FlowPane.margin>
+                                                      <Insets />
+                                                   </FlowPane.margin>
+                                                </HBox>
+                                                <HBox prefHeight="39.0" prefWidth="180.0">
+                                                   <children>
+                                                      <JFXTextField id="title" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="18.0" prefHeight="39.0" prefWidth="86.0" text="Signes chinois: " unFocusColor="#4d4d4d00">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                      <JFXTextField id="text" fx:id="ChineseSignLabel" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="0.0" prefHeight="39.0" prefWidth="85.0" unFocusColor="#4d4d4d00">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                      </JFXTextField>
+                                                   </children>
+                                                   <FlowPane.margin>
+                                                      <Insets />
+                                                   </FlowPane.margin>
+                                                </HBox>
+                                                <HBox prefHeight="41.0" prefWidth="225.0">
+                                                   <children>
+                                                      <JFXTextField id="title" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="18.0" prefHeight="41.0" prefWidth="91.0" text="Signes lunaires:" unFocusColor="#4d4d4d00">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                      <JFXTextField id="text" fx:id="LunarSignLabel" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="0.0" prefHeight="0.0" prefWidth="127.0" unFocusColor="#4d4d4d00">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                      </JFXTextField>
+                                                   </children>
+                                                   <FlowPane.margin>
+                                                      <Insets />
+                                                   </FlowPane.margin>
+                                                </HBox>
+                                                <HBox prefHeight="39.0" prefWidth="220.0">
+                                                   <children>
+                                                      <JFXTextField id="title" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="18.0" prefHeight="39.0" prefWidth="74.0" text="Asccendant:" unFocusColor="#4d4d4d00">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                      <JFXTextField id="text" fx:id="AscendingLabel" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="0.0" prefHeight="39.0" prefWidth="145.0" unFocusColor="#4d4d4d00">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                      </JFXTextField>
+                                                   </children>
+                                                   <FlowPane.margin>
+                                                      <Insets />
+                                                   </FlowPane.margin>
+                                                </HBox>
+                                                <HBox prefHeight="39.0" prefWidth="165.0">
+                                                   <children>
+                                                      <JFXTextField id="title" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="24.0" prefHeight="39.0" prefWidth="0.0" text="Decan:" unFocusColor="#4d4d4d00" HBox.hgrow="ALWAYS">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                      <JFXTextField id="text" fx:id="DecanLabel" editable="false" focusColor="#405aa800" prefHeight="39.0" prefWidth="81.0" unFocusColor="#4d4d4d00" HBox.hgrow="ALWAYS">
+                                                         <font>
+                                                            <Font name="System Bold" size="13.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                      </JFXTextField>
+                                                   </children>
+                                                   <FlowPane.margin>
+                                                      <Insets />
+                                                   </FlowPane.margin>
+                                                </HBox>
+                                                <HBox id="SecondBorder" style="-fx-border-width: 0.5;">
+                                                   <children>
+                                                      <JFXTextField id="title" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="18.0" prefHeight="39.0" prefWidth="87.0" text="Animal Totem:" unFocusColor="#4d4d4d00">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                      <JFXTextField id="text" fx:id="AnimalTotemLabel" editable="false" focusColor="#405aa800" maxHeight="70.0" minHeight="0.0" prefHeight="39.0" prefWidth="379.0" unFocusColor="#4d4d4d00">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <padding>
+                                                <Insets left="2.0" right="2.0" />
+                                             </padding>
+                                          </FlowPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </FlowPane>
+                           </center>
+                        </BorderPane>
+                        <BorderPane id="border-pane" fx:id="pane_1111" prefHeight="203.0" prefWidth="480.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-width: 0.5; -fx-padding: 2.5; -fx-background-radius: 1.5 1.5 1.5 1.5;">
+                           <top>
+                              <VBox maxWidth="458.0" prefHeight="32.0" prefWidth="453.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label prefHeight="19.0" prefWidth="458.0" text="Histoire:">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="                                                                                                                                                                                                                                                                                           " underline="true">
+                                       <font>
+                                          <Font size="6.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </top>
+                           <left>
+                              <JFXTextArea id="text" fx:id="StoryArena" editable="false" focusColor="#425ba800" prefHeight="109.0" prefWidth="474.0" unFocusColor="#4d4d4d00" BorderPane.alignment="CENTER" />
+                           </left>
+                        </BorderPane>
+                     </children></VBox>
+                  <Pane maxWidth="48.0" minWidth="5.0" prefHeight="950.0" prefWidth="48.0" />
+                  <VBox prefHeight="882.0" prefWidth="521.0" spacing="15.0">
+                     <children>
+                        <BorderPane id="border-pane" fx:id="pane_11111" prefHeight="125.0" prefWidth="490.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-width: 0.5; -fx-padding: 2.5; -fx-background-radius: 1.5 1.5 1.5 1.5;">
+                           <top>
+                              <VBox maxWidth="458.0" prefHeight="32.0" prefWidth="453.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label prefHeight="19.0" prefWidth="458.0" text="Rôle dans l'histoire">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="                                                                                                                                                                                                                                                                                           " underline="true">
+                                       <font>
+                                          <Font size="6.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </top>
+                           <left>
+                              <JFXTextArea id="text" fx:id="StoryRoleArena" editable="false" focusColor="#425ba800" prefHeight="109.0" prefWidth="474.0" unFocusColor="#4d4d4d00" BorderPane.alignment="CENTER" />
+                           </left>
+                        </BorderPane>
+                        <BorderPane id="border-pane" fx:id="pane_111111" prefHeight="179.0" prefWidth="490.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-width: 0.5; -fx-padding: 2.5; -fx-background-radius: 1.5 1.5 1.5 1.5;">
+                           <top>
+                              <VBox maxWidth="458.0" prefHeight="32.0" prefWidth="453.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label prefHeight="19.0" prefWidth="458.0" text="Autres Précisions">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="                                                                                                                                                                                                                                                                                           " underline="true">
+                                       <font>
+                                          <Font size="6.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </top>
+                           <left>
+                              <JFXTextArea id="text" fx:id="OtherThingsArena" editable="false" focusColor="#425ba800" prefHeight="109.0" prefWidth="474.0" unFocusColor="#4d4d4d00" BorderPane.alignment="CENTER" />
+                           </left>
+                        </BorderPane>
+                        <BorderPane id="border-pane" fx:id="pane_1111111" prefHeight="269.0" prefWidth="490.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-width: 0.5; -fx-padding: 2.5; -fx-background-radius: 1.5 1.5 1.5 1.5;">
+                           <top>
+                              <VBox maxWidth="458.0" prefHeight="32.0" prefWidth="453.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label prefHeight="19.0" prefWidth="458.0" text="Famille">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="                                                                                                                                                                                                                                                                                           " underline="true">
+                                       <font>
+                                          <Font size="6.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </top>
+                           <center>
+                              <JFXListView id="ListView" fx:id="FamiliesList" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent;" BorderPane.alignment="CENTER" />
+                           </center>
+                        </BorderPane>
+                        <BorderPane id="border-pane" fx:id="pane_113" prefHeight="122.0" prefWidth="481.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-width: 0.5; -fx-padding: 2.5; -fx-background-radius: 1.5 1.5 1.5 1.5;">
+                           <top>
+                              <VBox prefHeight="32.0" prefWidth="457.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label text="Localisation:">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="                                                                       " underline="true">
+                                       <font>
+                                          <Font size="6.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </top>
+                           <center>
+                              <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="5.0" prefHeight="0.0" prefWidth="457.0" prefWrapLength="200.0" vgap="5.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets />
+                                 </BorderPane.margin>
+                                 <children>
+                                    <VBox id="SecondBorder" prefHeight="71.0" prefWidth="201.0" style="-fx-border-width: 0.09;">
+                                       <children>
+                                          <JFXTextField id="SecondBorder" alignment="CENTER" editable="false" focusColor="TRANSPARENT" prefHeight="21.0" prefWidth="220.0" style="-fx-border-style: dotted; -fx-border-width: 0.25;" text="Planète" unFocusColor="TRANSPARENT">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField id="text" fx:id="PlanetLabel" alignment="CENTER" editable="false" focusColor="#405aa800" maxHeight="88.0" minHeight="24.0" prefHeight="88.0" prefWidth="165.0" unFocusColor="#4d4d4d00" />
+                                       </children>
+                                    </VBox>
+                                    <VBox id="SecondBorder" prefHeight="71.0" prefWidth="209.0" style="-fx-border-width: 0.09;">
+                                       <children>
+                                          <JFXTextField id="SecondBorder" alignment="CENTER" editable="false" focusColor="TRANSPARENT" prefHeight="10.0" prefWidth="138.0" style="-fx-border-style: dotted; -fx-border-width: 0.25;" text="Dernier lieux habité" unFocusColor="TRANSPARENT">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField id="text" fx:id="MainResidencePlaceLabel" alignment="CENTER" editable="false" focusColor="#405aa800" maxHeight="86.0" minHeight="24.0" prefHeight="86.0" prefWidth="138.0" unFocusColor="#4d4d4d00" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </FlowPane>
+                           </center>
+                        </BorderPane>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></VBox>
+               </children>
+            </HBox>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>

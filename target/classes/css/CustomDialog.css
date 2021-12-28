@@ -1,0 +1,18 @@
+#Accept:hover{
+    -fx-background-color: rgba(0, 161, 8, 0.35);
+}
+#Cancel:hover{
+    -fx-background-color: rgba(211, 0, 0, 0.35);
+}
+
+.jfx-popup-overlay-pane {
+    -fx-background-color: transparent;
+}
+
+.jfx-popup-container {
+    -fx-pref-width: 151.0px;
+}
+
+.popup-list-view {
+    -fx-pref-width: 150.0px;
+}

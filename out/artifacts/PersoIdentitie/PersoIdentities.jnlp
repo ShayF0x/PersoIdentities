@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="PersoIdentities.jnlp">
+  <information>
+    <title>PersoIdentities</title>
+    <vendor>ShayFox</vendor>
+    <description>PersoIdentitie</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="PersoIdentities.jar" size="4110689" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="600" height="400" main-class="fr.shayfox.persoidentitie.Main"  name="PersoIdentitie" />
+  <update check="background"/>
+</jnlp>
