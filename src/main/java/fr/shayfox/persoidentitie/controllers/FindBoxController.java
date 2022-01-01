@@ -18,7 +18,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import org.simpleyaml.configuration.file.YamlFile;
 import org.simpleyaml.exceptions.InvalidConfigurationException;
-import sun.rmi.runtime.Log;
 
 import java.io.File;
 import java.io.IOException;
@@ -131,8 +130,8 @@ public class FindBoxController implements Initializable {
                             if(array.contains(fileName))array.remove(fileName);
                         }
 
-                        mainController.TabPane.getTabs().forEach(value -> {
-                            if (value.getText().contains(fileName))mainController.TabPane.getTabs().remove(value);
+                        mainController.tabPane.getTabs().forEach(value -> {
+                            if (value.getText().contains(fileName))mainController.tabPane.getTabs().remove(value);
                         });
                         findList.getItems().remove(findList.getSelectionModel().getSelectedItem());
 

@@ -3,10 +3,8 @@ package fr.shayfox.persoidentitie;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDecorator;
 import com.jfoenix.svg.SVGGlyph;
-import com.sun.istack.internal.NotNull;
 import fr.shayfox.persoidentitie.controllers.MainController;
 import fr.shayfox.persoidentitie.updater.Updater;
-import fr.shayfox.persoidentitie.updater.Version;
 import fr.shayfox.persoidentitie.utils.FileClassPath;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -20,6 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -39,11 +38,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Main.primaryStage = primaryStage;
         LoadFiles();
-        String version = this.getClass().getPackage().getImplementationVersion();
-        System.out.println("Version: "+version);
 
-        if(version != null && !version.equalsIgnoreCase("null"))new Updater(new Version(version));
-        else new Updater(new Version("1.3.0"));
+        new Updater(null);
 
         System.out.println("All File has been load !");
         FXMLLoader fxmlLoader = new FXMLLoader(FileClassPath.load("Main.fxml", FileClassPath.Type.FXML));
@@ -51,7 +47,7 @@ public class Main extends Application {
         Parent root = fxmlLoader.load();
         MainController mainController = fxmlLoader.getController();
         root.getStyleClass().add("borderPane");
-        primaryStage.setTitle("PersoIdentitie");
+        primaryStage.setTitle("PersoIdentities");
 
         Image icon = new Image(FileClassPath.load("23924.png", FileClassPath.Type.IMAGE).toString(), 26, 26, true, true);
         primaryStage.getIcons().add(icon);
@@ -145,20 +141,31 @@ public class Main extends Application {
     }
 
     private void LoadFiles() {
-        createfile("/PersoIdentitie");
-        createfile("/PersoIdentitie/fiches");
-        createfile("/PersoIdentitie/Stockage");
-        createfile("/PersoIdentitie/fiches/images");
-        createfile("/PersoIdentitie/Stockage/themes");
-        createfiletheme();
-        createetiquetteconfig();
-        createconfig();
+        createFile("/PersoIdentitie");
+        createFile("/PersoIdentitie/fiches");
+        createFile("/PersoIdentitie/Stockage");
+        createFile("/PersoIdentitie/fiches/images");
+        createFile("/PersoIdentitie/Stockage/themes");
+        createFileTheme();
+        createFileJar();
+        createEtiquetteConfig();
+        createConfig();
+    }
+
+    private void createFileJar() {
+        try {
+            File updaterFile = new File(APPDATA +"/PersoIdentitie/apps.apps");
+
+            copyResource("apps/Updater.jar", updaterFile.getAbsolutePath(), Main.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /*#########################################
 	  #MÉTHODE POUR CRÉE LES FICHIER DE THEMES#
 	  #########################################*/
-    private static void createfiletheme() {
+    private static void createFileTheme() {
         try {
             File darkFile = new File(APPDATA +"/PersoIdentitie/Stockage/themes/DarkTheme.css");
             File lightFile = new File(APPDATA +"/PersoIdentitie/Stockage/themes/LightTheme.css");
@@ -182,7 +189,7 @@ public class Main extends Application {
     /*##########################################
       #MÉTHODE POUR CRÉE LE FICHIER D'ETIQUETTE#
       ##########################################*/
-    private static void createetiquetteconfig() {
+    private static void createEtiquetteConfig() {
         File dir = new File(APPDATA +"/PersoIdentitie/Stockage/etiquette.yml");
         String content = "listettiquette:";
         if(dir.exists())return;
@@ -206,7 +213,7 @@ public class Main extends Application {
     /*##########################################
       ##M�THODE POUR CR�E LE FICHIER DE CONFIG##
       ##########################################*/
-    private static void createconfig() {
+    private static void createConfig() {
         File dir = new File(APPDATA +"/PersoIdentitie/Stockage/config.properties");
         String content = "affichagefichier=true\ntheme=DarkTheme";
         if(dir.exists())return;
@@ -228,7 +235,7 @@ public class Main extends Application {
     /*##########################################
      M�THODE POUR CR�E LE FICHIER PERSOIDENTITIES ET FICHES
       ##########################################*/
-    private void createfile(String file) {
+    private void createFile(String file) {
         File dir = new File(APPDATA +file);
         if (dir.exists())return;
         dir.mkdirs();

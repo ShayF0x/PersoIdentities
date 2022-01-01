@@ -1,7 +1,6 @@
 package fr.shayfox.persoidentitie.controllers;
 
 import com.jfoenix.controls.*;
-import fr.shayfox.persoidentitie.Main;
 import fr.shayfox.persoidentitie.utils.CustomDialogs;
 import fr.shayfox.persoidentitie.utils.FileClassPath;
 import javafx.animation.Interpolator;
@@ -70,7 +69,7 @@ public class ThemeManagerTabController implements Initializable {
         });
 
         mainController.button_Save.setOnAction(e -> {
-            if(!mainController.TabPane.getSelectionModel().getSelectedItem().getText().equalsIgnoreCase("Apparence"))return;
+            if(!mainController.tabPane.getSelectionModel().getSelectedItem().getText().equalsIgnoreCase("Apparence"))return;
             Save();
             setEditingProperty(false);
             mainController.button_Save.setDisable(true);
@@ -163,11 +162,11 @@ public class ThemeManagerTabController implements Initializable {
            switch (result){
                case 0:
                    closeNoSave();
-                   if(mainController.TabPane.getTabs().size() <= 1)mainController.button_Save.setDisable(true);
+                   if(mainController.tabPane.getTabs().size() <= 1)mainController.button_Save.setDisable(true);
                break;
                case 1:
                    Save();
-                   if(mainController.TabPane.getTabs().size() <= 1)mainController.button_Save.setDisable(true);
+                   if(mainController.tabPane.getTabs().size() <= 1)mainController.button_Save.setDisable(true);
                break;
                case 2:
                    e.consume();

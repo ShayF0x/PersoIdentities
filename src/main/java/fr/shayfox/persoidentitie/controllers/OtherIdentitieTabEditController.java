@@ -540,7 +540,7 @@ public class OtherIdentitieTabEditController implements Initializable {
         }
 
         mainController.button_Save.setOnAction(e -> {
-            if(!mainController.TabPane.getSelectionModel().getSelectedItem().getText().equalsIgnoreCase(filename + " [Edit]"))return;
+            if(!mainController.tabPane.getSelectionModel().getSelectedItem().getText().equalsIgnoreCase(filename + " [Edit]"))return;
             Save();
             setEditingProperty(false);
             mainController.button_Save.setDisable(true);
@@ -549,7 +549,7 @@ public class OtherIdentitieTabEditController implements Initializable {
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
-            mainController.TabPane.getTabs().remove(mainController.TabPane.getSelectionModel().getSelectedIndex());
+            mainController.tabPane.getTabs().remove(mainController.tabPane.getSelectionModel().getSelectedIndex());
         });
 
 
@@ -655,11 +655,11 @@ public class OtherIdentitieTabEditController implements Initializable {
             switch (result){
                 case 0:
                     closeNoSave();
-                    if(mainController.TabPane.getTabs().size() <= 1)mainController.button_Save.setDisable(true);
+                    if(mainController.tabPane.getTabs().size() <= 1)mainController.button_Save.setDisable(true);
                 break;
                 case 1:
                     Save();
-                    if(mainController.TabPane.getTabs().size() <= 1)mainController.button_Save.setDisable(true);
+                    if(mainController.tabPane.getTabs().size() <= 1)mainController.button_Save.setDisable(true);
                 break;
                 case 2:
                     e.consume();
@@ -683,7 +683,7 @@ public class OtherIdentitieTabEditController implements Initializable {
             String newname = PrenameLabel.getText() +" "+ NameLabel.getText();
             if(newname.matches("^[a-zA-Z]+[ \\-']?[[a-z]+[ \\-']?]*[a-zA-Z \\-]+$")) {
                 charactere.FileName = filename;
-                mainController.TabPane.getTabs().get(mainController.TabPane.getAccessibleText().indexOf(oldname + "[Edit]")).setText(newname + "[Edit]");
+                mainController.tabPane.getTabs().get(mainController.tabPane.getAccessibleText().indexOf(oldname + "[Edit]")).setText(newname + "[Edit]");
                 File file = new File(appdata + "/PersoIdentitie/fiches/"+ oldFileName + ".yml");
                 File rename = new File(appdata + "/PersoIdentitie/fiches/" + filename + ".yml");
                 file.renameTo(rename);

@@ -659,7 +659,7 @@ public class TabEditController implements Initializable {
         }
 
         mainController.button_Save.setOnAction(e -> {
-            if(!mainController.TabPane.getSelectionModel().getSelectedItem().getText().equalsIgnoreCase(filename + " [Edit]"))return;
+            if(!mainController.tabPane.getSelectionModel().getSelectedItem().getText().equalsIgnoreCase(filename + " [Edit]"))return;
             Save();
             setEditingProperty(false);
             mainController.button_Save.setDisable(true);
@@ -668,7 +668,7 @@ public class TabEditController implements Initializable {
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
-            mainController.TabPane.getTabs().remove(mainController.TabPane.getSelectionModel().getSelectedIndex());
+            mainController.tabPane.getTabs().remove(mainController.tabPane.getSelectionModel().getSelectedIndex());
         });
 
     }
@@ -686,12 +686,12 @@ public class TabEditController implements Initializable {
                 (newValue) -> {
                     if(tab.isSelected())mainController.button_Save.setDisable(!tabController.getEditingProperty());
                 });
-        mainController.TabPane.getTabs().add(tab);
-        mainController.TabPane.setTabClosingPolicy(javafx.scene.control.TabPane.TabClosingPolicy.ALL_TABS);
+        mainController.tabPane.getTabs().add(tab);
+        mainController.tabPane.setTabClosingPolicy(javafx.scene.control.TabPane.TabClosingPolicy.ALL_TABS);
         tab.setOnCloseRequest(e -> tabController.closeRequest(e));
-        mainController.TabPane.autosize();
-        SingleSelectionModel<Tab> singleSelectionModel = mainController.TabPane.getSelectionModel();
-        singleSelectionModel.select(mainController.TabPane.getTabs().size()-1);
+        mainController.tabPane.autosize();
+        SingleSelectionModel<Tab> singleSelectionModel = mainController.tabPane.getSelectionModel();
+        singleSelectionModel.select(mainController.tabPane.getTabs().size()-1);
     }
 
     private void setImageDeleteIcon(){
@@ -810,11 +810,11 @@ public class TabEditController implements Initializable {
            switch (result){
                case 0:
                    closeNoSave();
-                   if(mainController.TabPane.getTabs().size() <= 1)mainController.button_Save.setDisable(true);
+                   if(mainController.tabPane.getTabs().size() <= 1)mainController.button_Save.setDisable(true);
                break;
                case 1:
                    Save();
-                   if(mainController.TabPane.getTabs().size() <= 1)mainController.button_Save.setDisable(true);
+                   if(mainController.tabPane.getTabs().size() <= 1)mainController.button_Save.setDisable(true);
                break;
                case 2:
                    e.consume();
@@ -835,7 +835,7 @@ public class TabEditController implements Initializable {
             filename = PrenameLabel.getText() +" "+ NameLabel.getText();
             if(filename.matches("^[a-zA-Z]+[ \\-']?[[a-z]+[ \\-']?]*[a-zA-Z \\-]+$")) {
                 charactere.FileName = filename;
-                mainController.TabPane.getTabs().get(mainController.TabPane.getAccessibleText().indexOf(oldFileName + "[Edit]")).setText(filename + "[Edit]");
+                mainController.tabPane.getTabs().get(mainController.tabPane.getAccessibleText().indexOf(oldFileName + "[Edit]")).setText(filename + "[Edit]");
                 File file = new File(appdata + "/PersoIdentitie/fiches/" + oldFileName + ".yml");
                 File rename = new File(appdata + "/PersoIdentitie/fiches/" + filename + ".yml");
                 file.renameTo(rename);

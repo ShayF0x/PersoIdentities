@@ -11,10 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Side;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import org.simpleyaml.configuration.file.YamlFile;
 
 import java.io.FileInputStream;
@@ -33,19 +30,19 @@ public class MainController implements Initializable {
     private VBox vBox;
 
     @FXML
-    private MenuItem closewindows, CreatePerson, CreateTag, button_edit, button_theme;
+    private MenuItem closewindows, CreatePerson, CreateTag, button_edit, button_theme, button_about;
     @FXML
     private SplitPane SpitPane;
     @FXML
     private JFXTogglePane findbox_pane;
     @FXML
-    private ContextMenu edit_contextmenu, show_contextmenu;
+    private ContextMenu edit_contextmenu, show_contextmenu, help_contextmenu;
     @FXML
     public CheckMenuItem checkbox_selectionlist;
     @FXML
-    public JFXButton button_Save, button_settings_file, button_settings_preferences;
+    public JFXButton button_Save, button_settings_file, button_settings_preferences, button_settings_help;
     @FXML
-    public JFXTabPane TabPane;
+    public JFXTabPane tabPane;
     @FXML
     public StackPane root;
     @FXML
@@ -71,23 +68,25 @@ public class MainController implements Initializable {
                 edit_contextmenu.show(button_settings_file, Side.TOP, 0, 0));
         button_settings_preferences.addEventHandler(MouseEvent.MOUSE_RELEASED, e ->
                 show_contextmenu.show(button_settings_preferences, Side.TOP, 0, 0));
+        button_settings_help.addEventHandler(MouseEvent.MOUSE_RELEASED, e ->
+                help_contextmenu.show(button_settings_help, Side.TOP, 0, 0));
 
         button_edit.setOnAction( e ->{
 
-            if(TabPane.getTabs().size() <= 0 || TabPane.getSelectionModel().getSelectedItem().getText().contains("(")){
+            if(tabPane.getTabs().size() <= 0 || tabPane.getSelectionModel().getSelectedItem().getText().contains("(")){
 
                 CustomDialogs.createErrorDialog("Erreur", "Aucun personnage selectionner, \nVeuiller ouvrir l'onglet du personnage voulut", root, JFXDialog.DialogTransition.TOP);
 
             }else{
 
-                String OngletSelectedName = TabPane.getSelectionModel().getSelectedItem().getText();
+                String OngletSelectedName = tabPane.getSelectionModel().getSelectedItem().getText();
 
                 if(OngletSelectedName.contains("[Edit]")){
 
                     CustomDialogs.createErrorDialog("Erreur", "L'onglet selectionné est déjà en cour d'édition", root, JFXDialog.DialogTransition.TOP);
 
                 }else{
-                    TabPane.getTabs().remove(TabPane.getSelectionModel().getSelectedIndex());
+                    tabPane.getTabs().remove(tabPane.getSelectionModel().getSelectedIndex());
                     try {
                         createeditedonglet(OngletSelectedName);
                     } catch (IOException ioException) {
@@ -100,14 +99,30 @@ public class MainController implements Initializable {
 
         button_theme.setOnAction( e -> {
             AtomicBoolean find = new AtomicBoolean(false);
-            TabPane.getTabs().stream().filter(tab -> tab.getText().equalsIgnoreCase("Apparence")).findFirst().ifPresent(tab -> {
-                TabPane.getSelectionModel().select(tab);
+            tabPane.getTabs().stream().filter(tab -> tab.getText().equalsIgnoreCase("Apparence")).findFirst().ifPresent(tab -> {
+                tabPane.getSelectionModel().select(tab);
                 find.set(true);
             });
 
             if(!find.get()){
                 try {
                     createThemeOnglet();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
+
+        button_about.setOnAction( e -> {
+            AtomicBoolean find = new AtomicBoolean(false);
+            tabPane.getTabs().stream().filter(tab -> tab.getText().equalsIgnoreCase("\u00c0 propos")).findFirst().ifPresent(tab -> {
+                tabPane.getSelectionModel().select(tab);
+                find.set(true);
+            });
+
+            if(!find.get()){
+                try {
+                    createAboutOnglet();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -179,7 +194,7 @@ public class MainController implements Initializable {
         closewindows.setOnAction(e -> Main.close());
 
         Main.primaryStage.setOnCloseRequest(e -> {
-           if(TabPane.getTabs().size() >= 1){
+           if(tabPane.getTabs().size() >= 1){
                e.consume();
                CustomDialogs.createErrorDialog("Impossible de fermer la fenêtre", "Veuiller d'abord fermer tout les onglet ouvert", root, JFXDialog.DialogTransition.TOP);
            }
@@ -339,12 +354,12 @@ public class MainController implements Initializable {
                 (newValue) -> {
                     if(tab.isSelected())button_Save.setDisable(!tabController.getEditingProperty());
         });
-        TabPane.getTabs().add(tab);
-        TabPane.setTabClosingPolicy(javafx.scene.control.TabPane.TabClosingPolicy.ALL_TABS);
+        tabPane.getTabs().add(tab);
+        tabPane.setTabClosingPolicy(javafx.scene.control.TabPane.TabClosingPolicy.ALL_TABS);
         tab.setOnCloseRequest(e -> tabController.closeRequest(e));
-        TabPane.autosize();
-        SingleSelectionModel<Tab> singleSelectionModel = TabPane.getSelectionModel();
-        singleSelectionModel.select(TabPane.getTabs().size()-1);
+        tabPane.autosize();
+        SingleSelectionModel<Tab> singleSelectionModel = tabPane.getSelectionModel();
+        singleSelectionModel.select(tabPane.getTabs().size()-1);
     }
 
     public void createThemeOnglet() throws IOException {
@@ -359,12 +374,31 @@ public class MainController implements Initializable {
                 (newValue) -> {
                     if(tab.isSelected())button_Save.setDisable(!tabController.getEditingProperty());
                 });
-        TabPane.getTabs().add(tab);
-        TabPane.setTabClosingPolicy(javafx.scene.control.TabPane.TabClosingPolicy.ALL_TABS);
+        tabPane.getTabs().add(tab);
+        tabPane.setTabClosingPolicy(javafx.scene.control.TabPane.TabClosingPolicy.ALL_TABS);
         tab.setOnCloseRequest(e -> tabController.closeRequest(e));
-        TabPane.autosize();
-        SingleSelectionModel<Tab> singleSelectionModel = TabPane.getSelectionModel();
-        singleSelectionModel.select(TabPane.getTabs().size()-1);
+        tabPane.autosize();
+        SingleSelectionModel<Tab> singleSelectionModel = tabPane.getSelectionModel();
+        singleSelectionModel.select(tabPane.getTabs().size()-1);
+    }
+
+    public void createAboutOnglet() throws IOException {
+        FXMLLoader panel = new FXMLLoader(FileClassPath.load("BlankTab.fxml", FileClassPath.Type.FXML));
+        HBox panelOnglet = panel.load();
+        BlankTabController tabController = panel.getController();
+        tabController.initData(this, root);
+        Tab tab = new Tab();
+        tab.setText("\u00c0 propos");
+        tab.setContent(panelOnglet);
+        tab.selectedProperty().addListener(
+                (newValue) -> {
+                    if(tab.isSelected())button_Save.setDisable(true);
+                });
+        tabPane.getTabs().add(tab);
+        tabPane.setTabClosingPolicy(javafx.scene.control.TabPane.TabClosingPolicy.ALL_TABS);
+        tabPane.autosize();
+        SingleSelectionModel<Tab> singleSelectionModel = tabPane.getSelectionModel();
+        singleSelectionModel.select(tabPane.getTabs().size()-1);
     }
 
     public void createonglet(String fileprofil) throws IOException {
@@ -375,12 +409,12 @@ public class MainController implements Initializable {
         Tab tab = new Tab();
         tab.setText(fileprofil);
         tab.setContent(panelOnglet);
-        TabPane.getTabs().add(tab);
-        TabPane.setTabClosingPolicy(javafx.scene.control.TabPane.TabClosingPolicy.ALL_TABS);
+        tabPane.getTabs().add(tab);
+        tabPane.setTabClosingPolicy(javafx.scene.control.TabPane.TabClosingPolicy.ALL_TABS);
         tab.setOnCloseRequest(e -> System.out.println("onglet closing "));
-        TabPane.autosize();
-        SingleSelectionModel<Tab> singleSelectionModel = TabPane.getSelectionModel();
-        singleSelectionModel.select(TabPane.getTabs().size()-1);
+        tabPane.autosize();
+        SingleSelectionModel<Tab> singleSelectionModel = tabPane.getSelectionModel();
+        singleSelectionModel.select(tabPane.getTabs().size()-1);
     }
 
     public void setTheme(){

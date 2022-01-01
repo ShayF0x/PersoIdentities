@@ -1,7 +1,6 @@
 package fr.shayfox.persoidentitie.controllers;
 
 import com.jfoenix.controls.*;
-import fr.shayfox.persoidentitie.Main;
 import fr.shayfox.persoidentitie.utils.Charactere;
 import fr.shayfox.persoidentitie.utils.CustomDialogs;
 import fr.shayfox.persoidentitie.utils.FileClassPath;
@@ -239,11 +238,11 @@ public class TabController implements Initializable {
         Tab tab = new Tab();
         tab.setText(fileprofil);
         tab.setContent(panelOnglet);
-        mainController.TabPane.getTabs().add(tab);
-        mainController.TabPane.setTabClosingPolicy(javafx.scene.control.TabPane.TabClosingPolicy.ALL_TABS);
+        mainController.tabPane.getTabs().add(tab);
+        mainController.tabPane.setTabClosingPolicy(javafx.scene.control.TabPane.TabClosingPolicy.ALL_TABS);
         tab.setOnCloseRequest(e -> System.out.println("onglet closing "));
-        mainController.TabPane.autosize();
-        SingleSelectionModel<Tab> singleSelectionModel = mainController.TabPane.getSelectionModel();
-        singleSelectionModel.select(mainController.TabPane.getTabs().size()-1);
+        mainController.tabPane.autosize();
+        SingleSelectionModel<Tab> singleSelectionModel = mainController.tabPane.getSelectionModel();
+        singleSelectionModel.select(mainController.tabPane.getTabs().size()-1);
     }
 }

@@ -13,12 +13,12 @@
    <left>
       <VBox id="border-pane" fx:id="vBox" alignment="TOP_CENTER" maxWidth="250.0" minWidth="150.0" prefHeight="1022.0" prefWidth="250.0" style="-fx-border-color: transparent; -fx-border-width: 0px;">
          <children>
-            <JFXButton id="buttonBar" fx:id="ThemeButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="150.0" prefHeight="50.0" prefWidth="300.0" ripplerFill="BLACK" style="-fx-background-radius: 0px;" text="Thèmes">
+            <JFXButton id="buttonBar" fx:id="ThemeButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="150.0" prefHeight="50.0" prefWidth="300.0" ripplerFill="BLACK" style="-fx-background-radius: 0px; -fx-font-size: 26;" text="Thèmes">
                <font>
                   <Font size="25.0" />
                </font>
             </JFXButton>
-            <JFXButton id="buttonBar" fx:id="FontButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="150.0" prefHeight="50.0" prefWidth="300.0" ripplerFill="BLACK" style="-fx-background-radius: 0px;" text="Police">
+            <JFXButton id="buttonBar" fx:id="FontButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="150.0" prefHeight="50.0" prefWidth="300.0" ripplerFill="BLACK" style="-fx-background-radius: 0px; -fx-font-size: 26;" text="Police">
                <font>
                   <Font size="25.0" />
                </font>
@@ -41,7 +41,7 @@
    <top>
       <StackPane id="SettingsBar" maxHeight="61.0" minHeight="50.0" prefHeight="50.0" prefWidth="1720.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Personnalisation de l'apparence">
+            <Label style="-fx-font-size: 26; -fx-font-weight: bold;" text="Personnalisation de l'apparence">
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>

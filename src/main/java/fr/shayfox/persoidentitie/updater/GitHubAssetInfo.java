@@ -1,7 +1,7 @@
 package fr.shayfox.persoidentitie.updater;
 
 import com.google.gson.annotations.SerializedName;
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 public class GitHubAssetInfo {
     String url;

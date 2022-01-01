@@ -28,7 +28,7 @@
                <center>
                   <SplitPane fx:id="SpitPane" dividerPositions="0.0" style="-fx-background-color: transparent;">
                      <items>
-                        <JFXTabPane fx:id="TabPane" maxWidth="1950.0" minHeight="104.5" minWidth="1645.0" prefHeight="1045.0" prefWidth="1700.0" />
+                        <JFXTabPane fx:id="tabPane" maxWidth="1950.0" minHeight="104.5" minWidth="1645.0" prefHeight="1045.0" prefWidth="1700.0" />
                         <JFXTogglePane fx:id="findbox_pane" minWidth="100.0" prefHeight="1045.0" prefWidth="262.0" />
                      </items>
                      <BorderPane.margin>
@@ -114,6 +114,27 @@
                                           <CheckMenuItem fx:id="checkbox_selectionlist" mnemonicParsing="false" text="liste de sélection" />
                                        </items>
                                     </Menu>
+                                 </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </JFXButton>
+                        <JFXButton fx:id="button_settings_help" minHeight="25.0" text="Aide">
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" focusDistance="0.024390243902439046" radius="0.4634146341463415">
+                                 <stops>
+                                    <Stop color="#b9b6b6" />
+                                    <Stop color="#b9b6b6" offset="0.007246376811594203" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <contextMenu>
+                              <ContextMenu fx:id="help_contextmenu">
+                                 <items>
+                                    <MenuItem fx:id="button_about" mnemonicParsing="false" text="À propos" />
                                  </items>
                               </ContextMenu>
                            </contextMenu>
