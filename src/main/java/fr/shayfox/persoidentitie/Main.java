@@ -154,7 +154,7 @@ public class Main extends Application {
 
     private void createFileJar() {
         try {
-            File updaterFile = new File(APPDATA +"/PersoIdentitie/apps.apps");
+            File updaterFile = new File(APPDATA +"/PersoIdentitie/Updater.jar");
 
             copyResource("apps/Updater.jar", updaterFile.getAbsolutePath(), Main.class);
         } catch (IOException e) {
