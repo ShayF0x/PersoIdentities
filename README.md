@@ -6,7 +6,7 @@ de personnages dans le cadre d'une histoire
 
 # Installation
 
-pour l'installation merci de télécharger l'intaller
+pour l'installation merci de télécharger [l'intaller](https://drive.google.com/uc?export=download&id=1BlO4BUcvux4KrFHZnfkH7mRDbyiDYtVh)
 si vous utilisez la dernière version build merci de mettre le .exe sous le nom "PersoIdentities" dans votre répertoire %appdata%
 
 # Licence
