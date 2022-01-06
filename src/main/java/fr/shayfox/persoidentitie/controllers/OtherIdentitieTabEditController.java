@@ -9,6 +9,7 @@ import fr.shayfox.persoidentitie.utils.CustomDialogs;
 import fr.shayfox.persoidentitie.utils.FileClassPath;
 import javafx.beans.InvalidationListener;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,6 +18,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -539,17 +541,11 @@ public class OtherIdentitieTabEditController implements Initializable {
             if(node instanceof JFXComboBox)((JFXComboBox<?>) node).valueProperty().addListener(e -> changedEvent(node));
         }
 
-        mainController.button_Save.setOnAction(e -> {
-            if(!mainController.tabPane.getSelectionModel().getSelectedItem().getText().equalsIgnoreCase(filename + " [Edit]"))return;
+        mainController.button_Save.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            if (!mainController.tabPane.getSelectionModel().getSelectedItem().getText().equalsIgnoreCase(filename + " [Edit]")) return;
             Save();
             setEditingProperty(false);
             mainController.button_Save.setDisable(true);
-            try {
-                mainController.createeditedonglet(filename);
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-            mainController.tabPane.getTabs().remove(mainController.tabPane.getSelectionModel().getSelectedIndex());
         });
 
 

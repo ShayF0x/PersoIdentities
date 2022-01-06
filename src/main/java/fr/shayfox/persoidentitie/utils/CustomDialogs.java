@@ -49,7 +49,7 @@ public class CustomDialogs {
 
             StackPane parent = fxmlLoader.load();
 
-            parent.getStylesheets().add(FileClassPath.load("CustomDialog.css", FileClassPath.Type.FXML).toString());
+            parent.getStylesheets().add(FileClassPath.load("CustomDialog.css", FileClassPath.Type.CSS).toString());
             PersoInputDialogController dialogController = fxmlLoader.getController();
 
             Image img = new Image(FileClassPath.load("23924.png", FileClassPath.Type.IMAGE).toString());

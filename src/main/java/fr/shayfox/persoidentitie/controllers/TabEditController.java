@@ -20,6 +20,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
@@ -79,9 +80,9 @@ public class TabEditController implements Initializable {
     private Charactere charactere;
     public MainController mainController;
 
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    private ArrayList<String> AddImages = new ArrayList<String>();
+    private ArrayList<String> AddImages = new ArrayList<>();
     private ArrayList<String> RemoveImages = new ArrayList<String>();
     private ArrayList<String> AddOtherIdentities = new ArrayList<String>();
     private ArrayList<String> RemoveOtherIdentities = new ArrayList<>();
@@ -92,7 +93,7 @@ public class TabEditController implements Initializable {
     private final List<Node> componentsList = new ArrayList<>();
     private ArrayList<String> log = new ArrayList<>();
     private String Result;
-    public boolean Edited;
+    public boolean edited;
 
 
     @Override
@@ -658,18 +659,14 @@ public class TabEditController implements Initializable {
             if(node instanceof JFXComboBox)((JFXComboBox<?>) node).valueProperty().addListener(e -> changedEvent(node));
         }
 
-        mainController.button_Save.setOnAction(e -> {
+        mainController.button_Save.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             if(!mainController.tabPane.getSelectionModel().getSelectedItem().getText().equalsIgnoreCase(filename + " [Edit]"))return;
             Save();
             setEditingProperty(false);
+            System.out.println("called");
             mainController.button_Save.setDisable(true);
-            try {
-                mainController.createeditedonglet(filename);
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-            mainController.tabPane.getTabs().remove(mainController.tabPane.getSelectionModel().getSelectedIndex());
         });
+
 
     }
 
@@ -968,11 +965,11 @@ public class TabEditController implements Initializable {
     }
 
     public void setEditingProperty(boolean bool){
-        Edited = bool;
+        edited = bool;
     }
 
     public boolean getEditingProperty(){
-        return Edited;
+        return edited;
     }
 
     public boolean isValidFormat(String date){

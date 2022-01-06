@@ -83,7 +83,7 @@
                                     <Menu mnemonicParsing="false" text="crée">
                                       <items>
                                         <MenuItem fx:id="CreateTag" mnemonicParsing="false" text="étiquette" />
-                                         <MenuItem fx:id="CreatePerson" mnemonicParsing="false" text="fiche personnage" />
+                                         <MenuItem fx:id="createPerson" mnemonicParsing="false" text="fiche personnage" />
                                       </items>
                                     </Menu>
                                     <SeparatorMenuItem mnemonicParsing="false" />

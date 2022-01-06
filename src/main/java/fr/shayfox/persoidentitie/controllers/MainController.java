@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Side;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import org.simpleyaml.configuration.file.YamlFile;
@@ -30,7 +31,7 @@ public class MainController implements Initializable {
     private VBox vBox;
 
     @FXML
-    private MenuItem closewindows, CreatePerson, CreateTag, button_edit, button_theme, button_about;
+    private MenuItem closewindows, createPerson, CreateTag, button_edit, button_theme, button_about;
     @FXML
     private SplitPane SpitPane;
     @FXML
@@ -166,10 +167,8 @@ public class MainController implements Initializable {
 
         if(findBoxController != null){
             findBoxController.findList.setOnMouseClicked(e -> {
-                System.out.println("click");
-
+                if(e.getButton().equals(MouseButton.SECONDARY))return;
                 if (e.getSource() == findBoxController.findList && oldSelectedItem != null && findBoxController.findList.getSelectionModel().getSelectedItem().equals(oldSelectedItem)) {
-                    System.out.println("double");
                     if (findBoxController.findList.getSelectionModel().getSelectedItem() == null) return;
                     if (findBoxController.findList.getSelectionModel().getSelectedItem().getName().equalsIgnoreCase("Aucune fiche n'a cette étiquette"))
                         return;
@@ -177,9 +176,10 @@ public class MainController implements Initializable {
                     String selection = findBoxController.selectBox.getSelectionModel().getSelectedItem();
                     findBoxController.fileProfil = findBoxController.findList.getSelectionModel().getSelectedItem().getName();
 
+                    findBoxController.findList.getSelectionModel().clearSelection();
                     if (selection.equalsIgnoreCase("Fiches")) {
                         try {
-                            createonglet(findBoxController.fileProfil);
+                            createOnglet(findBoxController.fileProfil);
                         } catch (IOException ioException) {
                             ioException.printStackTrace();
                         }
@@ -248,7 +248,7 @@ public class MainController implements Initializable {
 		  TODO##################nouvelle Fiche####################
 		  ########################################################*/
 
-        CreatePerson.setOnAction(e -> {
+        createPerson.setOnAction(e -> {
             String name, preName, world;
 
             contentFiche = CustomDialogs.createPersoInputStage("Création de fiche");
@@ -401,7 +401,7 @@ public class MainController implements Initializable {
         singleSelectionModel.select(tabPane.getTabs().size()-1);
     }
 
-    public void createonglet(String fileprofil) throws IOException {
+    public void createOnglet(String fileprofil) throws IOException {
         FXMLLoader panel = new FXMLLoader(FileClassPath.load("Tab.fxml", FileClassPath.Type.FXML));
         BorderPane panelOnglet = panel.load();
         TabController tabController = panel.getController();
@@ -411,7 +411,6 @@ public class MainController implements Initializable {
         tab.setContent(panelOnglet);
         tabPane.getTabs().add(tab);
         tabPane.setTabClosingPolicy(javafx.scene.control.TabPane.TabClosingPolicy.ALL_TABS);
-        tab.setOnCloseRequest(e -> System.out.println("onglet closing "));
         tabPane.autosize();
         SingleSelectionModel<Tab> singleSelectionModel = tabPane.getSelectionModel();
         singleSelectionModel.select(tabPane.getTabs().size()-1);

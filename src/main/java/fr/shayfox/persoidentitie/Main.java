@@ -173,7 +173,7 @@ public class Main extends Application {
             //Main.class.getClassLoader().getResource("resources/images/23924.png").toString()
             copyResource("themes/DarkTheme.css", darkFile.getAbsolutePath(), Main.class);
             copyResource("themes/LightTheme.css", lightFile.getAbsolutePath(), Main.class);
-            copyResource("themes/Font.css", fontFile.getAbsolutePath(), Main.class);
+            if(!fontFile.exists())copyResource("themes/Font.css", fontFile.getAbsolutePath(), Main.class);
         } catch (IOException e) {
             e.printStackTrace();
         }

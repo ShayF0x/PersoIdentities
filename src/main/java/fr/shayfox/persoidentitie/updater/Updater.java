@@ -26,10 +26,11 @@ public class Updater {
 
 
     public Updater(MainController mainController) {
-        String version = this.getClass().getPackage().getImplementationVersion().replaceAll("-SNAPSHOT", "");
+        String version = this.getClass().getPackage().getImplementationVersion();
+        if(version!=null)version.replaceAll("-SNAPSHOT", "");
+        else version = "1.3.0";
         System.out.println("Version: "+version);
-        if(version != null && !version.equalsIgnoreCase("null"))this.currentVersion = new Version(version);
-        else this.currentVersion = new Version("1.3.0");
+        this.currentVersion = new Version(version);
 
         try {
             System.out.println("connection");

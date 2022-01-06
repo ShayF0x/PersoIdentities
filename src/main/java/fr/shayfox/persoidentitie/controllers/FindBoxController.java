@@ -90,7 +90,7 @@ public class FindBoxController implements Initializable {
             seeItem = new MenuItem("voir");
             seeItem.setOnAction(e -> {
                 try {
-                    mainController.createonglet(findList.getSelectionModel().getSelectedItem().getName());
+                    mainController.createOnglet(findList.getSelectionModel().getSelectedItem().getName());
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }

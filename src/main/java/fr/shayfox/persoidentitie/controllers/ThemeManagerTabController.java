@@ -1,6 +1,7 @@
 package fr.shayfox.persoidentitie.controllers;
 
 import com.jfoenix.controls.*;
+import fr.shayfox.persoidentitie.Main;
 import fr.shayfox.persoidentitie.utils.CustomDialogs;
 import fr.shayfox.persoidentitie.utils.FileClassPath;
 import javafx.animation.Interpolator;
@@ -12,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -68,11 +70,12 @@ public class ThemeManagerTabController implements Initializable {
             changeSelection(FontButton);
         });
 
-        mainController.button_Save.setOnAction(e -> {
+        mainController.button_Save.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             if(!mainController.tabPane.getSelectionModel().getSelectedItem().getText().equalsIgnoreCase("Apparence"))return;
             Save();
             setEditingProperty(false);
             mainController.button_Save.setDisable(true);
+            Main.setTheme();
         });
     }
 
