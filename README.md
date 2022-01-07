@@ -6,7 +6,7 @@ de personnages dans le cadre d'une histoire
 
 # Installation
 
-pour l'installation merci de télécharger [l'intaller](https://urlz.fr/h3Dv)
+pour l'installation merci de télécharger [l'intaller](https://download1080.mediafire.com/1s06tiwpuuig/th5okj5xhto20n2/PersoIdentities-installer.exe)
 si vous utilisez la dernière version build merci de mettre le .exe sous le nom "PersoIdentities" dans votre répertoire %appdata%
 
 # Licence

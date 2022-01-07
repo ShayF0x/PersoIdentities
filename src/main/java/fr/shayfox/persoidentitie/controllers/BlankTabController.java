@@ -33,8 +33,10 @@ public class BlankTabController implements Initializable {
     }
 
     private void initComponent() {
-        author.setText(this.getClass().getPackage().getImplementationVendor());
-        version.setText(this.getClass().getPackage().getImplementationVersion().replaceAll("-SNAPSHOT", ""));
+        if(this.getClass().getPackage().getImplementationVendor() != null)author.setText(this.getClass().getPackage().getImplementationVendor());
+        else author.setText("ShayFox_[beta]");
+        if(this.getClass().getPackage().getImplementationVersion() != null)version.setText(this.getClass().getPackage().getImplementationVersion().replaceAll("-SNAPSHOT", ""));
+        else version.setText("1.3.0[beta]");
         updateButton.setOnAction(e -> {
             if(cooldown-System.currentTimeMillis() <= 0){
                 new Updater(mainController);

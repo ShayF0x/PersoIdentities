@@ -70,9 +70,9 @@ public class Updater {
                         CustomDialogs.createErrorDialog("Erreur", "merci de fermer tout les onglets avant d'effectuer la mise à jour", mainController.root, JFXDialog.DialogTransition.CENTER);
                         return;
                     }
-                    File updaterApp = new File(APPDATA+"/PersoIdentitie/apps.apps");
-                    Runtime.getRuntime().exec(" java -apps " + updaterApp.getAbsolutePath());
-                    Main.primaryStage.close();
+                    File updaterApp = new File(APPDATA+"/PersoIdentitie/Updater.jar");
+                    Runtime.getRuntime().exec(" java -jar " + updaterApp.getAbsolutePath());
+                    System.exit(0);
                 }
             } catch (JsonSyntaxException | NumberFormatException ex) {
                 System.out.println("Failed to parse the latest version info.");
