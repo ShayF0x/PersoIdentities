@@ -24,6 +24,8 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -76,6 +78,16 @@ public class Main extends Application {
 
     public static void setTheme() {
         String applyTheme = defaultTheme;
+
+        LocalDate date = LocalDate.now();
+        if(date.getMonth().equals(Month.FEBRUARY) && date.getDayOfMonth() == 1){
+            if(primaryStage.getScene().getStylesheets().size() > 0)
+                primaryStage.getScene().getStylesheets().clear();
+            File fontCssFile = new File(APPDATA +"/PersoIdentitie/Stockage/themes/Font.css");
+            primaryStage.getScene().getStylesheets().add("file:///"+fontCssFile.getAbsolutePath().replace("\\", "/"));
+            primaryStage.getScene().getStylesheets().add(FileClassPath.load("AbiTheme.css", FileClassPath.Type.THEME).toString());
+            return;
+        }
         List<String> themeList = listDirectory(APPDATA +"/PersoIdentitie/Stockage/themes", ".css");
         themeList.remove("Font");
 
